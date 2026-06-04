@@ -33,7 +33,7 @@ The main entry points are exposed through command-line scripts after installing 
 To train the main solver model used in the Paper, run:
 
 ```bash
-train-model --seed 42 --n_neurons 64 --n_dsets 131072 --batch 128 --n_layers 2
+train-models --seed 42 --n_neurons 64 --n_dsets 131072 --batch 128 --n_layers 2
 ```
 
 This produces model weights in:

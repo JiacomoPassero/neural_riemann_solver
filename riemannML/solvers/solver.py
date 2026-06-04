@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 
 import torch.nn.init as init
 
-from hydro.hlle_solver import HLLESolver
+from riemannML.hydro.hlle_solver import HLLESolver
 from .weight_initialization import * 
 
 from .MLP import  Compactification, RootfindMLP

@@ -1,5 +1,5 @@
 import argparse
-from .train_models_main import train_all_models_main
+from .train_models_main import main as train_all_models_main
 
 def main():
     import argparse

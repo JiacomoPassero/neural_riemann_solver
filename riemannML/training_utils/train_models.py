@@ -67,7 +67,7 @@ def train_raref_solvers(
     os.makedirs(checkpoint_dir, exist_ok=True)
     model = RootfindMLP(input_dim=3,output_dim=1, output_mapping=torch.sigmoid, input_min=input_min, input_max=input_max, d_ff=n_neurons, depth=n_layers).to(device).to(dtype)
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)#, verbose=True)
     train_loss, test_loss = train_model_PCGrad(
         model,
         optimizer,
@@ -126,7 +126,7 @@ def train_raref_solvers(
     model = RootfindMLP(input_dim=3,output_dim=1, output_mapping=torch.sigmoid, input_min=input_min, input_max=input_max, d_ff=n_neurons, depth=n_layers).to(device).to(dtype)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)#, verbose=True)
     train_loss, test_loss = train_model_PCGrad(
         model,
         optimizer,
@@ -278,7 +278,7 @@ def train_model(seed,
     # ------------------ MODEL + OPTIMIZER ------------------
     model = RootfindMLP( input_dim=6, output_dim=1, d_ff=n_neurons, depth=n_layers, input_max=input_max.to(dtype), input_min=input_min.to(dtype), output_mapping=F.sigmoid).to(device).to(dtype)
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)#, verbose=True)
     train_loss, test_loss = train_model_PCGrad(model,optimizer,scheduler,train_loader,test_loader,epochs,checkpoint_dir, 2, loss_fn, clip_grads, grad_norm, gamma)
     
     # Save loss trajectories
